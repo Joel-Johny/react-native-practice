@@ -10,10 +10,16 @@ import {
 
 
 const GroceryItem = ({currentGroceryItem,setGroceries}) => {
+
+  function handleDelete(){
+    setGroceries((oldGroceries)=>{
+      return oldGroceries.filter((GroceryItem)=>GroceryItem.id!==currentGroceryItem.id)
+    })
+  }
   return (
     <View style={styles.groceryContainer}>
         <Text style={styles.Text}>{currentGroceryItem.name}</Text>
-        <Button title='Delete' />
+        <Button title='Delete' onPress={handleDelete} />
     </View>
   )
 }
